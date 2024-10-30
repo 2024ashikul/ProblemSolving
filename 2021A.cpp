@@ -26,7 +26,7 @@ int main(){
             inputs.erase(inputs.begin(), inputs.begin()+2);
             for (int k = 0; k < inputs.size(); k++)
             {
-                cout << inputs[i] << " ";
+                cout << inputs[k] << " ";
             }
             cout << endl;
             
