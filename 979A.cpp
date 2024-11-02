@@ -40,3 +40,58 @@ int main(){
 
     return 0;
 }
+
+
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+using namespace std;
+using ll = long long;
+int main()
+{
+
+    ll number = 1000000000000000000;
+    vector<ll> inputs(number, 1);
+
+        ll count = 0;
+            for (ll i = 1; i < number; i++)
+            {
+                for (ll j = i; j < number; j = j + i)
+                {
+                    if (inputs[j] == 1)
+                    {
+                        inputs[j] = 0;
+                    }
+                    else
+                    {
+                        inputs[j] = 1;
+                    }
+                }
+                
+            }
+
+            for (ll i = 0; i <= number; i++)
+            {
+                if (inputs[i] == 1)
+                {
+                    count++;
+                }
+            }
+            
+            inputs.push_back(count-1);
+
+    int testcase;
+    cin >> testcase;
+    while (testcase--)
+    {
+        ll n;
+        cin >> n;
+        cout << inputs[n] << endl;
+        
+       
+    }
+
+    return 0;
+}

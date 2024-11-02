@@ -10,46 +10,34 @@ int main()
     cin >> testcase;
     while (testcase--)
     {
-        long long n;
+        int n,k;
         cin >> n;
-        vector<int> inputs(100000, 1);
-        int inc = 1;
-        int count = 0;
-        int k = n;
-        while (k)
+        cin >> k;
+        vector<int> inputs;
+        vector<int> real;
+        for (int i = 0; i < k; i++)
         {
-            for (int i = 1; i < k; i++)
-            {
-                for (int j = i; j < k; j = j + i)
-                {
-                    if (inputs[j] == 1)
-                    {
-                        inputs[j] = 0;
-                    }
-                    else
-                    {
-                        inputs[j] = 1;
-                    }
-                }
-            }
-
-            for (int i = 0; i <= k; i++)
-            {
-                if (inputs[i] == 1)
-                {
-                    count++;
-                }
-            }
-            if (count == n)
-            {
-                
-                break;
-            }
-            k++;
+            int a;
+            cin >> a;
+            inputs.push_back(a);
+            int b;
+            cin >> b;
+            inputs.push_back(b);
+            real.push_back(b);
+        }
+        sort(real.begin() , real.end());
+        int earn  =0 ;
+        int index = k-1;
+        while (n>0 && index>=0)
+        {
+            earn+=real[index];
+            n--;
+            index--;
             
         }
-
-        cout << count - 1 << endl;
+        
+        cout << earn << endl;
+        
     }
 
     return 0;
